@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadania</title>
+</head>
+<body>
+<h3>Zadanie</h3>
+<p th:text="${task.opis}"></p>
+<p th:text="${task.osoba}"></p>
+<p th:text="${task.punkty}"></p>
+<p th:text="${task.termin}"></p>
+<a th:href="'/edytuj?opis=' + ${task}">Edycja</a>
+</body>
+</html>

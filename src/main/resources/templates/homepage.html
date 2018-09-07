@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>HomeTasker</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style type="text/css">
+        .container-fluid {
+            background: darkgray;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <h1>Hometasker</h1>
+</div>
+<br>
+<table class="table table-hover" data-toggle="table" data-pagination="true">
+    <thead>
+    <th data-field="snum" data-formatter="LinkFormatter"></th>
+    <tr>
+        <th>Opis</th>
+        <th>Osoba</th>
+        <th>Punkty</th>
+        <th>Termin wykonania</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="homeTasker: ${homeTaskers}" class="homeTasker">
+        <th scope="col" th data-field="snum" data-formatter="LinkFormatter" th:href="'/zadania?opis=' + ${homeTasker.opis}" th:text="${homeTasker.opis}"></th>
+        <th scope="col" th:text="${homeTasker.osoba}"></th>
+        <th scope="col" th:text="${homeTasker.punkty}"></th>
+        <th scope="col" th:text="${homeTasker.dateTimeFormat}"></th>
+    </tr>
+    </tbody>
+</table>
+<br>
+
+<a href="/dodaj" class="btn btn-primary btn-lg btn-block" type="button" target="_blank">Dodaj zadanie</a>
+<a href="/edytuj" class="btn btn-primary btn-lg btn-block" type="button" target="_blank">Edytuj zadanie</a>
+<a href="/usun" class="btn btn-primary btn-lg btn-block" type="button" target="_blank">Usuń zadanie</a>
+
+</body>
+</html>
